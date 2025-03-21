@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import AuditResults from './components/AuditResults'
 export default function Home() {
 	const [expandedSections, setExpandedSections] = useState({
 		step1: false,
@@ -10,7 +10,9 @@ export default function Home() {
 		step2a: false,
 		step2b: false,
 		step3: false,
+		example: false,
 		tools: false,
+		pages: false,
 	})
 
 	const [checkedItems, setCheckedItems] = useState({
@@ -598,6 +600,32 @@ export default function Home() {
 					)}
 				</section>
 
+				{/* Example Section */}
+				<section
+					className={`space-y-4 border rounded-lg p-6 transition-colors ${
+						expandedSections.example ? 'bg-gray-50' : 'bg-white'
+					}`}>
+					<button
+						onClick={() => toggleSection('example')}
+						className='flex justify-between items-center w-full text-left group'>
+						<h2 className='text-2xl font-semibold text-gray-900'>Example</h2>
+						<span
+							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+								expandedSections.example ? 'rotate-90' : ''
+							}`}>
+							▶
+						</span>
+					</button>
+					{expandedSections.example && (
+						<div className='mt-4'>
+							<p className='text-gray-600 mb-4'>
+								Here's an example of how audit results can be documented:
+							</p>
+							<AuditResults />
+						</div>
+					)}
+				</section>
+
 				{/* Tools Section */}
 				<section
 					className={`space-y-4 border rounded-lg p-6 transition-colors ${
@@ -629,6 +657,57 @@ export default function Home() {
 							<p className='text-gray-600'>
 								Here will be a list of standard tools based on the link (and based on own research).
 							</p>
+						</div>
+					)}
+				</section>
+
+				{/* Pages to Include Section */}
+				<section
+					className={`space-y-4 border rounded-lg p-6 transition-colors ${
+						expandedSections.pages ? 'bg-gray-50' : 'bg-white'
+					}`}>
+					<button
+						onClick={() => toggleSection('pages')}
+						className='flex justify-between items-center w-full text-left group'>
+						<h2 className='text-2xl font-semibold text-gray-900'>
+							How Many Pages to Include in an Audit?
+						</h2>
+						<span
+							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+								expandedSections.pages ? 'rotate-90' : ''
+							}`}>
+							▶
+						</span>
+					</button>
+					{expandedSections.pages && (
+						<div className='mt-4 space-y-6'>
+							<div>
+								<h3 className='text-lg font-semibold text-gray-900 mb-2'>
+									Representative Sampling
+								</h3>
+								<p className='text-gray-600 mb-3'>
+									The audit should cover a diverse and representative selection of pages, including:
+								</p>
+								<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+									<li>Homepage</li>
+									<li>Navigation menus</li>
+									<li>Key user flows (e.g., login, forms, checkout)</li>
+									<li>Dynamic content (e.g., pop-ups, modals)</li>
+									<li>Different content types (text, images, videos, PDFs, etc.)</li>
+								</ul>
+							</div>
+
+							<div>
+								<h3 className='text-lg font-semibold text-gray-900 mb-2'>Minimum Recommendation</h3>
+								<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+									<li>Small websites (under 10 pages): Test all pages</li>
+									<li>Medium websites (10-100 pages): Test at least 10-15 key pages</li>
+									<li>
+										Large websites (100+ pages): Test a percentage (e.g., 5-10%) across different
+										templates and functionalities
+									</li>
+								</ul>
+							</div>
 						</div>
 					)}
 				</section>

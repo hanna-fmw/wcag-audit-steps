@@ -1,3 +1,5 @@
+
+
 const wcagCriteria = [
 	{
 		criterion: '1.3.4 Orientation',
@@ -635,6 +637,7 @@ export default function WCAGCriteriaPage() {
 							<th className='border p-2 text-gray-900'>Category</th>
 							<th className='border p-2 text-gray-900'>Level</th>
 							<th className='border p-2 text-gray-900'>Description</th>
+							<th className='border p-2 text-gray-900'>Example</th>
 							<th className='border p-2 text-gray-900'>How to Check</th>
 							<th className='border p-2 text-gray-900'>Tool/Method</th>
 							<th className='border p-2 text-gray-900'>Where to Check</th>
@@ -647,6 +650,7 @@ export default function WCAGCriteriaPage() {
 								<td className='border p-2 text-gray-900'>{criterion.category}</td>
 								<td className='border p-2 text-gray-900'>{criterion.level}</td>
 								<td className='border p-2 text-gray-900'>{criterion.description}</td>
+								<td className='border p-2 text-gray-900'>{criterion.example}</td>
 								<td className='border p-2 whitespace-pre-line text-gray-900'>
 									{criterion.howToCheck}
 								</td>
