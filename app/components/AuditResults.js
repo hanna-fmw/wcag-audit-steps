@@ -131,7 +131,7 @@ const auditResults = [
 export default function AuditResults() {
 	return (
 		<div className='container mx-auto p-4'>
-			<h2 className='text-2xl font-bold mb-4'>Audit Results</h2>
+			<h2 className='text-2xl text-black font-bold mb-4'>Audit Results</h2>
 			<div className='overflow-x-auto'>
 				<table className='min-w-full bg-white border border-gray-300 text-gray-900'>
 					<thead>

@@ -11,8 +11,9 @@ export default function Home() {
 		step2b: false,
 		step3: false,
 		example: false,
-		tools: false,
+		automatedTests: false,
 		pages: false,
+		manualTests: false,
 	})
 
 	const [checkedItems, setCheckedItems] = useState({
@@ -29,6 +30,9 @@ export default function Home() {
 		audioDescription: false,
 		formLabels: false,
 		requiredFields: false,
+		bodyText: false,
+		screenReader: false,
+		tables: false,
 	})
 
 	const toggleSection = (section) => {
@@ -111,20 +115,19 @@ export default function Home() {
 							▶
 						</span>
 					</button>
+					<div>
+						<p className='text-gray-600'>
+							Write the issues in a short and consistent way. Here are 2 formats we like but find
+							something that works for you. Some people like to also include a potential solution.
+							It's up to you and your team.
+						</p>
+						<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+							<li>&lt;Element&gt;&lt;Location on page&gt;&lt;Issue&gt;</li>
+							<li>When &lt;action&gt;&lt;location on page&gt;&lt;result&gt;&lt;issue&gt;</li>
+						</ul>
+					</div>
 					{expandedSections.step2 && (
 						<div className='mt-4 space-y-8'>
-							<div>
-								<p className='text-gray-600'>
-									Write the issues in a short and consistent way. Here are 2 formats we like but
-									find something that works for you. Some people like to also include a potential
-									solution. It's up to you and your team.
-								</p>
-								<ul className='list-disc pl-6 space-y-2 text-gray-600'>
-									<li>&lt;Element&gt;&lt;Location on page&gt;&lt;Issue&gt;</li>
-									<li>When &lt;action&gt;&lt;location on page&gt;&lt;result&gt;&lt;issue&gt;</li>
-								</ul>
-							</div>
-
 							{/* Step 2a nested inside Step 2 */}
 							<div className='border-t pt-6'>
 								<button
@@ -176,11 +179,24 @@ export default function Home() {
 																		(Learn more)
 																	</a>
 																</h5>
-																<p className='text-gray-600'>
+																<p className='text-gray-600 mb-2'>
 																	Image alternative text ("alt text") is a short description that
 																	conveys the purpose of an image. Alternative text is used by
 																	people who do not see the image.
 																</p>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																	<li>
+																		Ensure alternative "alt" text conveys the content and function
+																		for all non-decorative images. It should be succinct, accurate,
+																		and useful.
+																	</li>
+																	<li>
+																		Look for images of text or text embedded on images, and confirm
+																		that the text is represented either in the body text or in the
+																		alt text. Check this by trying to highlight text with your
+																		cursor.
+																	</li>
+																</ul>
 															</div>
 														</div>
 													</div>
@@ -237,7 +253,8 @@ export default function Home() {
 																<p className='text-gray-600'>
 																	Headings communicate the organization of the content on the page,
 																	like a table of contents. Screen reader users often use page
-																	headings as a way to navigate a web page.
+																	headings as a way to navigate a web page. Also see Body Text
+																	Review.
 																</p>
 															</div>
 														</div>
@@ -263,13 +280,23 @@ export default function Home() {
 																		(Learn more)
 																	</a>
 																</h5>
-																<p className='text-gray-600'>
+																<p className='text-gray-600 mb-2'>
 																	Color contrast refers to the difference between adjacent colors.
 																	Typically this is the text and background color. It also includes
 																	interactive elements and their background, and parts of graphs or
 																	charts. Some people cannot read text or find elements if there is
 																	insufficient contrast between colors.
 																</p>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																	<li>
+																		Check that the text and background color has a contrast ratio of
+																		at least 4.5:1.
+																	</li>
+																	<li>
+																		Ensure color is not used as the only way of conveying meaning or
+																		information.
+																	</li>
+																</ul>
 															</div>
 														</div>
 													</div>
@@ -324,12 +351,59 @@ export default function Home() {
 																		(Learn more)
 																	</a>
 																</h5>
-																<p className='text-gray-600'>
-																	Keyboard focus is a visible indicator that identifies the element
-																	with focus and moves as your tab through a page. For people who
-																	rely on a keyboard to navigate it is important that they know
-																	which link or form control has focus.
+																<p className='text-gray-600 mb-2'>
+																	Can all interactive elements be selected and activated using the
+																	keyboard?
 																</p>
+
+																<h6 className='font-semibold text-gray-900 mb-2'>
+																	How to test with a keyboard
+																</h6>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600 mb-4'>
+																	<li>
+																		<span className='font-medium'>Tab:</span> Navigate to links and
+																		form controls.
+																	</li>
+																	<li>
+																		<span className='font-medium'>Shift + Tab:</span> Navigate
+																		backwards.
+																	</li>
+																	<li>
+																		<span className='font-medium'>Spacebar:</span> Activate
+																		checkboxes and buttons.
+																	</li>
+																	<li>
+																		<span className='font-medium'>Enter:</span> Activate links and
+																		buttons.
+																	</li>
+																	<li>
+																		<span className='font-medium'>Arrow keys:</span> Radio buttons,
+																		select/drop-down menus, sliders, tab panels, auto-complete, tree
+																		menus, etc.
+																	</li>
+																	<li>
+																		<span className='font-medium'>Escape:</span> Dismisses browser
+																		dialog or menu.
+																	</li>
+																</ul>
+
+																<h6 className='font-semibold text-gray-900 mb-2'>
+																	What to check for
+																</h6>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																	<li>Is anything mouse-only, such as rollover menus?</li>
+																	<li>
+																		Is a "skip navigation" link available? Activate the skip link
+																		and hit Tab again to ensure it functions correctly.
+																	</li>
+																	<li>Is the navigation order logical and intuitive?</li>
+																	<li>Is a visible keyboard focus indicator present?</li>
+																	<li>
+																		Test dialogs that 'pop' open. Can you navigate and close the
+																		dialog? Does focus return to a logical place?
+																	</li>
+																	<li>Esc should also close all dialogs.</li>
+																</ul>
 															</div>
 														</div>
 													</div>
@@ -383,12 +457,171 @@ export default function Home() {
 																		(Learn more)
 																	</a>
 																</h5>
-																<p className='text-gray-600'>
+																<p className='text-gray-600 mb-2'>
 																	Zoom is used to enlarge the text and images on web pages to make
 																	them more readable. Some people need to enlarge content in order
-																	to read it. When content is zoomed it still needs to legible and
-																	usable.
+																	to read it. When content is zoomed it still needs to be legible
+																	and usable.
 																</p>
+																<h5 className='font-semibold text-black'>Zoom to 200%</h5>
+																<p className='text-gray-600 mb-2'>
+																	Control + for PCs, Command + for Mac
+																</p>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																	<li>
+																		Is all the content still present on the page and is it still in
+																		an order that makes sense?
+																	</li>
+																	<li>Does any of the content overlap or become far apart?</li>
+																	<li>
+																		Do navigation bars or menus get replaced with mobile-style
+																		menus, and can you navigate and close the menus?
+																	</li>
+																	<li>
+																		Do you have to scroll horizontally to read everything, and is
+																		anything cut off?
+																	</li>
+																	<li>
+																		Do links, buttons, forms, and menus still function with the
+																		content zoomed?
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+
+													<div className='border-b border-gray-200 pb-4'>
+														<div className='flex items-start gap-3'>
+															<input
+																type='checkbox'
+																id='bodyText'
+																checked={checkedItems.bodyText}
+																onChange={() => toggleCheck('bodyText')}
+																className='mt-1 h-5 w-5 rounded border-gray-300 text-blue-500 focus:ring-blue-500'
+															/>
+															<div>
+																<h5 className='font-semibold text-blue-500'>Body Text Review</h5>
+																<p className='text-gray-600 mb-2'>
+																	The body text of a page should be well-structured and easy to
+																	understand. This includes proper heading hierarchy, descriptive
+																	link text, and clear language.
+																</p>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																	<li>
+																		Confirm that page titles are unique and descriptive, marked as
+																		&lt;h1&gt;. There should only be one &lt;h1&gt; per page.
+																	</li>
+																	<li>
+																		Ensure visual headings are useful and descriptive, and marked up
+																		with an &lt;h&gt; element and in hierarchical order (&lt;h1&gt;,
+																		&lt;h2&gt;, etc.). Look for skipped heading levels (&lt;h2&gt;
+																		to &lt;h4&gt;).
+																	</li>
+																	<li>
+																		Look for generic link text like "read more" or "click here."
+																	</li>
+																	<li>
+																		Check that plain language is used instead of jargon, and all
+																		acronyms are spelled out on first reference.
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+
+													{/* Common Checks section - add after Body Text Review and before Tables Section */}
+													<div className='border-b border-gray-200 pb-4'>
+														<div className='flex items-start gap-3'>
+															<input
+																type='checkbox'
+																id='screenReader'
+																checked={checkedItems.screenReader}
+																onChange={() => toggleCheck('screenReader')}
+																className='mt-1 h-5 w-5 rounded border-gray-300 text-blue-500 focus:ring-blue-500'
+															/>
+															<div>
+																<h5 className='font-semibold text-blue-500'>Screen Reader Test</h5>
+																<p className='text-gray-600 mb-6'>
+																	Test with a screen reader to uncover issues with reading order,
+																	spelling, dynamic content, and interactive elements. While a
+																	little daunting at first, it is an essential and informative step
+																	in assessing your content for accessibility.
+																</p>
+																<p className='text-gray-600 mb-6'>
+																	We've created three guides - customized to whichever system and
+																	screen reader that you're using to test.
+																</p>
+
+																<div className='mb-6'>
+																	<h6 className='font-semibold text-gray-900 mb-2'>
+																		Free screen readers:
+																	</h6>
+																	<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																		<li>
+																			<span className='font-medium'>Mac users:</span>{' '}
+																			<a
+																				href='#'
+																				className='text-blue-500 hover:text-blue-700 hover:underline'>
+																				Getting Started Testing with VoiceOver
+																			</a>
+																		</li>
+																		<li>
+																			<span className='font-medium'>PC users:</span>{' '}
+																			<a
+																				href='#'
+																				className='text-blue-500 hover:text-blue-700 hover:underline'>
+																				Getting Started Testing with NVDA
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+
+																<div className='mb-6'>
+																	<h6 className='font-semibold text-gray-900 mb-2'>
+																		Other screen readers:
+																	</h6>
+																	<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																		<li>
+																			<span className='font-medium'>PC users:</span>{' '}
+																			<a
+																				href='#'
+																				className='text-blue-500 hover:text-blue-700 hover:underline'>
+																				Getting Started Testing with JAWS
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													{/* Tables Section */}
+													<div className='border-b border-gray-200 pb-4'>
+														<div className='flex items-start gap-3'>
+															<input
+																type='checkbox'
+																id='tables'
+																checked={checkedItems.tables}
+																onChange={() => toggleCheck('tables')}
+																className='mt-1 h-5 w-5 rounded border-gray-300 text-blue-500 focus:ring-blue-500'
+															/>
+															<div>
+																<h5 className='font-semibold text-blue-500'>Tables</h5>
+																<p className='text-gray-600 mb-2'>
+																	Tables should be used for presenting tabular data, not for layout
+																	purposes. Proper table structure helps screen reader users
+																	understand the relationships between headers and data cells.
+																</p>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																	<li>
+																		Confirm that tables are only used for tabular data, not for
+																		layout.
+																	</li>
+																	<li>
+																		If data tables are present, ensure table caption and row and/or
+																		column headers are present.
+																	</li>
+																</ul>
 															</div>
 														</div>
 													</div>
@@ -517,11 +750,18 @@ export default function Home() {
 																		(Learn more)
 																	</a>
 																</h5>
-																<p className='text-gray-600'>
+																<p className='text-gray-600 mb-2'>
 																	Form field labels are the text beside form fields. They should
 																	tell us what information to enter or what checkbox to select.
 																	Everyone needs labels to understand how to interact with a form.
 																</p>
+																<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+																	<li>Make sure form controls have descriptive labels.</li>
+																	<li>
+																		If a label is not visible, check for a hidden &lt;label&gt;,
+																		aria-label, or title attribute.
+																	</li>
+																</ul>
 															</div>
 														</div>
 													</div>
@@ -626,23 +866,23 @@ export default function Home() {
 					)}
 				</section>
 
-				{/* Tools Section */}
+				{/* Automated Tests Section */}
 				<section
 					className={`space-y-4 border rounded-lg p-6 transition-colors ${
-						expandedSections.tools ? 'bg-gray-50' : 'bg-white'
+						expandedSections.automatedTests ? 'bg-gray-50' : 'bg-white'
 					}`}>
 					<button
-						onClick={() => toggleSection('tools')}
+						onClick={() => toggleSection('automatedTests')}
 						className='flex justify-between items-center w-full text-left group'>
-						<h2 className='text-2xl font-semibold text-gray-900'>Tools</h2>
+						<h2 className='text-2xl font-semibold text-gray-900'>Automated Tests</h2>
 						<span
 							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
-								expandedSections.tools ? 'rotate-90' : ''
+								expandedSections.automatedTests ? 'rotate-90' : ''
 							}`}>
 							▶
 						</span>
 					</button>
-					{expandedSections.tools && (
+					{expandedSections.automatedTests && (
 						<div className='mt-4 space-y-6'>
 							<div className='space-y-8'>
 								<div className='border-b border-gray-200 pb-4'>
@@ -847,6 +1087,247 @@ export default function Home() {
 										Each check includes step-by-step guidance and explanations of why these aspects
 										are important for accessibility.
 									</p>
+								</div>
+							</div>
+						</div>
+					)}
+				</section>
+
+				{/* Manual Tests Section */}
+				<section
+					className={`space-y-4 border rounded-lg p-6 transition-colors ${
+						expandedSections.manualTests ? 'bg-gray-50' : 'bg-white'
+					}`}>
+					<button
+						onClick={() => toggleSection('manualTests')}
+						className='flex justify-between items-center w-full text-left group'>
+						<h2 className='text-2xl font-semibold text-gray-900'>Manual Tests</h2>
+						<span
+							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+								expandedSections.manualTests ? 'rotate-90' : ''
+							}`}>
+							▶
+						</span>
+					</button>
+					{expandedSections.manualTests && (
+						<div className='mt-4 space-y-8'>
+							{/* Content Review Section */}
+							<div>
+								<h3 className='text-xl font-semibold text-gray-900 mb-4'>Content Review</h3>
+								<p className='text-gray-600 mb-4'>
+									Read through your content with accessibility best practices in mind.
+								</p>
+
+								{/* Zoom Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Zoom in to 200%</h4>
+									<p className='text-gray-600 mb-2'>Control + for PCs, Command + for Mac</p>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>
+											Is all the content still present on the page and is it still in an order that
+											makes sense?
+										</li>
+										<li>Does any of the content overlap or become far apart?</li>
+										<li>
+											Do navigation bars or menus get replaced with mobile-style menus, and can you
+											navigate and close the menus?
+										</li>
+										<li>
+											Do you have to scroll horizontally to read everything, and is anything cut
+											off?
+										</li>
+										<li>
+											Do links, buttons, forms, and menus still function with the content zoomed?
+										</li>
+									</ul>
+								</div>
+
+								{/* Body Text Section */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Body Text</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>
+											Confirm that page titles are unique and descriptive, marked as &lt;h1&gt;.
+											There should only be one &lt;h1&gt; per page.
+										</li>
+										<li>
+											Ensure visual headings are useful and descriptive, and marked up with an
+											&lt;h&gt; element and in hierarchical order (&lt;h1&gt;, &lt;h2&gt;, etc.).
+											Look for skipped heading levels (&lt;h2&gt; to &lt;h4&gt;).
+										</li>
+										<li>Look for generic link text like "read more" or "click here."</li>
+										<li>
+											Check that plain language is used instead of jargon, and all acronyms are
+											spelled out on first reference.
+										</li>
+									</ul>
+								</div>
+
+								{/* Screen Reader Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Screen Reader Test</h4>
+									<p className='text-gray-600 mb-6'>
+										Test with a screen reader to uncover issues with reading order, spelling,
+										dynamic content, and interactive elements. While a little daunting at first, it
+										is an essential and informative step in assessing your content for
+										accessibility.
+									</p>
+									<p className='text-gray-600 mb-6'>
+										We've created three guides - customized to whichever system and screen reader
+										that you're using to test.
+									</p>
+
+									<div className='mb-6'>
+										<h6 className='font-semibold text-gray-900 mb-2'>Free screen readers:</h6>
+										<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+											<li>
+												<span className='font-medium'>Mac users:</span>{' '}
+												<a href='#' className='text-blue-500 hover:text-blue-700 hover:underline'>
+													Getting Started Testing with VoiceOver
+												</a>
+											</li>
+											<li>
+												<span className='font-medium'>PC users:</span>{' '}
+												<a href='#' className='text-blue-500 hover:text-blue-700 hover:underline'>
+													Getting Started Testing with NVDA
+												</a>
+											</li>
+										</ul>
+									</div>
+
+									<div className='mb-6'>
+										<h6 className='font-semibold text-gray-900 mb-2'>Other screen readers:</h6>
+										<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+											<li>
+												<span className='font-medium'>PC users:</span>{' '}
+												<a href='#' className='text-blue-500 hover:text-blue-700 hover:underline'>
+													Getting Started Testing with JAWS
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								{/* Tables Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Tables</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>Confirm that tables are only used for tabular data, not for layout.</li>
+										<li>
+											If data tables are present, ensure table caption and row and/or column headers
+											are present.
+										</li>
+									</ul>
+								</div>
+
+								{/* Images Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Images</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>
+											Ensure alternative "alt" text conveys the content and function for all
+											non-decorative images. It should be succinct, accurate, and useful.
+										</li>
+										<li>
+											Look for images of text or text embedded on images, and confirm that the text
+											is represented either in the body text or in the alt text. Check this by
+											trying to highlight text with your cursor.
+										</li>
+									</ul>
+								</div>
+
+								{/* Color Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Color</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>
+											Check that the text and background color has a contrast ratio of at least
+											4.5:1.
+										</li>
+										<li>
+											Ensure color is not used as the only way of conveying meaning or information.
+										</li>
+									</ul>
+								</div>
+
+								{/* Forms Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Forms</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>Make sure form controls have descriptive labels.</li>
+										<li>
+											If a label is not visible, check for a hidden &lt;label&gt;, aria-label, or
+											title attribute.
+										</li>
+									</ul>
+								</div>
+
+								{/* Tables Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>Tables</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>Confirm that tables are only used for tabular data, not for layout.</li>
+										<li>
+											If data tables are present, ensure table caption and row and/or column headers
+											are present.
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							{/* Keyboard Testing Section */}
+							<div>
+								<h3 className='text-xl font-semibold text-gray-900 mb-4'>Keyboard Testing</h3>
+								<p className='text-gray-600 mb-4'>
+									Can all interactive elements be selected and activated using the keyboard?
+								</p>
+
+								{/* How to Test Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>
+										How to test with a keyboard
+									</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>
+											<span className='font-medium'>Tab:</span> Navigate to links and form controls.
+										</li>
+										<li>
+											<span className='font-medium'>Shift + Tab:</span> Navigate backwards.
+										</li>
+										<li>
+											<span className='font-medium'>Spacebar:</span> Activate checkboxes and
+											buttons.
+										</li>
+										<li>
+											<span className='font-medium'>Enter:</span> Activate links and buttons.
+										</li>
+										<li>
+											<span className='font-medium'>Arrow keys:</span> Radio buttons,
+											select/drop-down menus, sliders, tab panels, auto-complete, tree menus, etc.
+										</li>
+										<li>
+											<span className='font-medium'>Escape:</span> Dismisses browser dialog or menu.
+										</li>
+									</ul>
+								</div>
+
+								{/* What to Check Section */}
+								<div className='mb-6'>
+									<h4 className='text-lg font-semibold text-gray-900 mb-2'>What to check for</h4>
+									<ul className='list-disc pl-6 space-y-2 text-gray-600'>
+										<li>Is anything mouse-only, such as rollover menus?</li>
+										<li>
+											Is a "skip navigation" link available? Activate the skip link and hit Tab
+											again to ensure it functions correctly.
+										</li>
+										<li>Is the navigation order logical and intuitive?</li>
+										<li>Is a visible keyboard focus indicator present?</li>
+										<li>
+											Test dialogs that 'pop' open. Can you navigate and close the dialog? Does
+											focus return to a logical place?
+										</li>
+										<li>Esc should also close all dialogs.</li>
+									</ul>
 								</div>
 							</div>
 						</div>
