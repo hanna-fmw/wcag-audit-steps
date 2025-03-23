@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import AuditResults from './components/AuditResults'
+import HowTo from './components/HowTo'
 export default function Home() {
 	const [expandedSections, setExpandedSections] = useState({
 		step1: false,
@@ -60,6 +61,8 @@ export default function Home() {
 				Internal Accessibility WCAG Audit Guide
 			</h1>
 
+			<HowTo />
+
 			<div className='space-y-12'>
 				{/* Step 1 */}
 				<section
@@ -71,7 +74,7 @@ export default function Home() {
 						className='flex justify-between items-center w-full text-left group'>
 						<h2 className='text-2xl font-semibold text-gray-900'>Step 1: Determine the Scope</h2>
 						<span
-							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+							className={`transform transition-transform text-gray-700 cursor-pointer ${
 								expandedSections.step1 ? 'rotate-90' : ''
 							}`}>
 							▶
@@ -109,7 +112,7 @@ export default function Home() {
 						className='flex justify-between items-center w-full text-left group'>
 						<h2 className='text-2xl font-semibold text-gray-900'>Step 2: Audit</h2>
 						<span
-							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+							className={`transform transition-transform text-gray-700 cursor-pointer ${
 								expandedSections.step2 ? 'rotate-90' : ''
 							}`}>
 							▶
@@ -135,7 +138,7 @@ export default function Home() {
 									className='flex justify-between items-center w-full text-left group'>
 									<h3 className='text-xl font-semibold text-gray-900'>Step 2a: Initial Checks</h3>
 									<span
-										className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+										className={`transform transition-transform text-gray-700 cursor-pointer ${
 											expandedSections.step2a ? 'rotate-90' : ''
 										}`}>
 										▶
@@ -810,7 +813,7 @@ export default function Home() {
 										Step 2b: WCAG Criteria Review
 									</h3>
 									<span
-										className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+										className={`transform transition-transform text-gray-700 cursor-pointer ${
 											expandedSections.step2b ? 'rotate-90' : ''
 										}`}>
 										▶
@@ -850,7 +853,7 @@ export default function Home() {
 						className='flex justify-between items-center w-full text-left group'>
 						<h2 className='text-2xl font-semibold text-gray-900'>Example</h2>
 						<span
-							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+							className={`transform transition-transform text-gray-700 cursor-pointer ${
 								expandedSections.example ? 'rotate-90' : ''
 							}`}>
 							▶
@@ -876,7 +879,7 @@ export default function Home() {
 						className='flex justify-between items-center w-full text-left group'>
 						<h2 className='text-2xl font-semibold text-gray-900'>Automated Tests</h2>
 						<span
-							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+							className={`transform transition-transform text-gray-700 cursor-pointer ${
 								expandedSections.automatedTests ? 'rotate-90' : ''
 							}`}>
 							▶
@@ -1103,7 +1106,7 @@ export default function Home() {
 						className='flex justify-between items-center w-full text-left group'>
 						<h2 className='text-2xl font-semibold text-gray-900'>Manual Tests</h2>
 						<span
-							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+							className={`transform transition-transform text-gray-700 cursor-pointer ${
 								expandedSections.manualTests ? 'rotate-90' : ''
 							}`}>
 							▶
@@ -1346,7 +1349,7 @@ export default function Home() {
 							How Many Pages to Include in an Audit?
 						</h2>
 						<span
-							className={`transform transition-transform text-gray-700 group-hover:text-blue-500 cursor-pointer ${
+							className={`transform transition-transform text-gray-700 cursor-pointer ${
 								expandedSections.pages ? 'rotate-90' : ''
 							}`}>
 							▶
