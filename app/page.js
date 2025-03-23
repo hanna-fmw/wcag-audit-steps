@@ -643,20 +643,212 @@ export default function Home() {
 						</span>
 					</button>
 					{expandedSections.tools && (
-						<div className='mt-4'>
-							<p className='text-gray-600'>
-								For the tests, use (filter depending on case):{' '}
-								<a
-									href='https://www.w3.org/WAI/test-evaluate/tools/list/'
-									className='text-blue-500 hover:text-blue-700 hover:underline'
-									target='_blank'
-									rel='noopener noreferrer'>
-									W3C WAI Tools List
-								</a>
-							</p>
-							<p className='text-gray-600'>
-								Here will be a list of standard tools based on the link (and based on own research).
-							</p>
+						<div className='mt-4 space-y-6'>
+							<div className='space-y-8'>
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://www.w3.org/WAI/test-evaluate/tools/list/'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											W3.org Web Accessibility Evaluation Tools List
+										</a>
+									</h3>
+								</div>
+
+								{/* Silktide */}
+
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://silktide.com/installed-silktide-toolbar/'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											Silktide Accessibility Checker
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Chrome extension)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										Silktide's free accessibility checker tests your web page for over 200 WCAG
+										issues, giving you straightforward, step-by-step guidance. The browser plugin
+										highlights accessibility issues on each page, includes information on how to fix
+										them, and offers a range of accessibility tools to help you monitor WCAG and ADA
+										compliance.
+									</p>
+								</div>
+
+								{/* Color Contrast Checker */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://chromewebstore.google.com/detail/color-contrast-checker-by/hfcoldjibhgbnlambdiecfneiegagkhi?hl=en'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											Color Contrast Checker by DigitalA11Y
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Chrome extension)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										A Chrome extension to check color combinations against WCAG contrast ratios,
+										offering palette suggestions. Ideal for designers, developers and accessibility
+										experts to review or audit site color contrast. Features include top-of-page
+										access, one-click color picking, manual hex input, instant ratio display, and
+										WCAG-compliant color recommendations.
+									</p>
+								</div>
+
+								{/* Accessibility Cloud Lite */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://www.accessibilitycloud.com/lite/'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											Accessibility Cloud Lite
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Bookmarklet)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										Lite is Accessibility Cloud's bookmarklet. You can use it to test any web page,
+										whether it's behind a login or not. It runs locally on your computer. Just add
+										to bookmarks bar: Please drag and drop the link from the website to your
+										bookmarks bar. When you want to test a page, click the bookmarklet to see the
+										errors on the page.
+									</p>
+								</div>
+
+								{/* Pope Tech */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://pope.tech/'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											Pope Tech
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Free for 25 pages)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										Pope Tech simplifies web accessibility and makes compliance easier with
+										automation, flexible team management, dynamic reporting, and a friendly
+										interface made for beginners and experts. The tool crawls all pages, is based on
+										WAVE, allows export of reports, and also helps with manual testing and much
+										more.
+									</p>
+								</div>
+
+								{/* A11y Quick Check */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://chromewebstore.google.com/detail/a11y-quick-check/jlamgighkcjniljcdfpnhiemcakibepi'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											A11y Quick Check
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Chrome extension)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										A11y Quick Check is a browser extension for evaluating web accessibility through
+										a structured checklist. It provides 42 individual tests focused on key
+										accessibility aspects, including headings, grouping elements, lists, tables,
+										related controls, and accessible names and descriptions. The tool identifies
+										accessibility, structural, and semantic issues and includes guidance for manual
+										verification.
+									</p>
+								</div>
+
+								{/* VoiceOver */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://assistivlabs.com/use-cases/testing-any-screen-reader-on-mac'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											VoiceOver
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>
+											(Built-in screen reader for Mac)
+										</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										VoiceOver is the built-in screen reader for Mac. While it's a powerful tool for
+										Mac users, it's important to note that it uses a different interaction model
+										than Windows screen readers. VoiceOver requires holding down the "VO keys"
+										(Control + Option) for navigation, whereas Windows screen readers like NVDA use
+										a virtual cursor model. Testing with multiple screen readers is recommended for
+										comprehensive accessibility testing.
+									</p>
+								</div>
+
+								{/* WCAG Checklist by Level Access */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://www.levelaccess.com/thank-you-download-the-must-have-wcag-2-1-checklist/'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											WCAG Checklist by Level Access
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Downloadable resource)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										A comprehensive WCAG 2.1 checklist that helps evaluate your current state of
+										accessibility. This checklist is foundational for accessibility compliance and
+										helps meet most global accessibility laws. Includes detailed criteria
+										explanations and evaluation guidance.
+									</p>
+								</div>
+
+								{/* Hike One Accessibility Evaluation Template */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://hike.one/insights/accessibility-evaluation-template'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											Hike One Accessibility Evaluation Template
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Free template)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										A practical template for conducting accessibility audits, including step-by-step
+										instructions for checking criteria, simplified WCAG descriptions, and helpful
+										references. The template is designed to make accessibility evaluation
+										approachable even for those new to accessibility testing.
+									</p>
+								</div>
+
+								{/* W3C WAI Easy Checks */}
+								<div className='border-b border-gray-200 pb-4'>
+									<h3 className='text-lg font-semibold text-blue-500'>
+										<a
+											href='https://www.w3.org/WAI/test-evaluate/#initial'
+											className='hover:text-blue-700 hover:underline'
+											target='_blank'
+											rel='noopener noreferrer'>
+											W3C WAI Easy Checks
+										</a>
+										<span className='ml-2 text-sm text-gray-600'>(Official W3C resource)</span>
+									</h3>
+									<p className='text-gray-600 mt-2'>
+										The Web Accessibility Initiative's official guide for initial accessibility
+										checks. Provides detailed instructions for evaluating key accessibility features
+										like page titles, image text alternatives, headings, contrast ratio, and more.
+										Each check includes step-by-step guidance and explanations of why these aspects
+										are important for accessibility.
+									</p>
+								</div>
+							</div>
 						</div>
 					)}
 				</section>
