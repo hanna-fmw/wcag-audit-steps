@@ -60,6 +60,7 @@ export default function Home() {
 			<h1 className='text-4xl font-bold mb-8 text-gray-900'>
 				Internal Accessibility WCAG Audit Guide
 			</h1>
+			<Link href='/orderedWcagCriteria'>WCAG Criteria (Ordered)</Link>
 
 			<HowTo />
 
